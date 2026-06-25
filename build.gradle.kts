@@ -1,4 +1,4 @@
-import java.util.regex.Pattern
+import java.net.URI
 
 plugins {
     java
@@ -12,6 +12,62 @@ repositories {
     flatDir {
         dir("libs")
     }
+
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = URI("https://api.modrinth.com/maven")
+            }
+        }
+        filter {
+            includeGroup("maven.modrinth")
+        }
+    }
+
+    // Aeronautics etc. want version numbering systems other than Modrinth's, thus sourcing from other Maven servers
+
+    // Create, pretty self-explanatory
+    maven {
+        name = "CreateMaven"
+        url = URI("https://maven.createmod.net")
+    }
+
+    // Everything Simulated
+    maven {
+        name = "RyanHCode"
+        url = URI("https://maven.ryanhcode.dev/releases")
+    }
+
+    // Veil
+    maven {
+        name = "BlameJared"
+        url = URI("https://maven.blamejared.com/")
+    }
+
+    // Curios API
+    maven {
+        name = "TheIllusiveC4"
+        url = URI("https://maven.theillusivec4.top/")
+    }
+    // Also one hell of a user name
+
+    // CC: Tweaked
+    maven {
+        name = "SquidDev"
+        url = URI("https://maven.squiddev.cc")
+        content {
+            includeGroup("cc.tweaked")
+        }
+    }
+
+    // Registrate
+    maven {
+        name = "ithundxr"
+        url = URI("https://maven.ithundxr.dev/snapshots")
+    }
+    // Ironically, the author of this mod, TTERAG, has their own Maven server, yet hasn't hosted it on there
+    // And finding the specific snapshot Aero wants definitely didn't take me the better part of an hour
 }
 
 neoForge {
@@ -60,15 +116,11 @@ sourceSets.main {
 }
 
 dependencies {
-    file("libs").listFiles().forEach {
-        val regex = Pattern.compile("(.+)-([0-9].*).jar")
-        val matcher = regex.matcher(it.name)
-        if (matcher.find()) {
-            val module = matcher.group(1)
-            val modVersion = matcher.group(2)
-            implementation("ignored:$module:$modVersion")
-        }
-    }
+    implementation("dev.ryanhcode.sable:sable-neoforge-1.21.1:2.0.3")
+    implementation("dev.simulated_team.simulated:simulated-neoforge-1.21.1:1.3.0")
+    implementation("dev.eriksonn.aeronautics:aeronautics-neoforge-1.21.1:1.3.0")
+    implementation("dev.ryanhcode.offroad:offroad-neoforge-1.21.1:1.3.0")
+    implementation("com.tterrag.registrate:Registrate:MC1.21-1.3.0+67")
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

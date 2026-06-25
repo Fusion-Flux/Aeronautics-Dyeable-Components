@@ -6,7 +6,7 @@ import dev.ryanhcode.offroad.index.OffroadDataComponents;
 import dev.ryanhcode.offroad.index.OffroadItems;
 import io.github.fusionflux.dyeable_components.DyeableComponents;
 import dev.eriksonn.aeronautics.content.components.Levitating;
-import dev.eriksonn.aeronautics.content.particle.LevititeSparklePartcleData;
+import dev.eriksonn.aeronautics.content.particle.LevititeSparkleParticleData;
 import dev.eriksonn.aeronautics.index.AeroBlocks;
 import dev.eriksonn.aeronautics.index.AeroDataComponents;
 import dev.simulated_team.simulated.registrate.SimulatedRegistrate;
@@ -40,7 +40,7 @@ public class DyeableComponentsBlocks {
     );
 
     public static final Map<DyeColor, DeferredItem<Item>> DYED_LEVITITE_ITEMS = DyeableComponents.colorMap(color -> {
-        LevititeSparklePartcleData particleData = new LevititeSparklePartcleData(color.getTextureDiffuseColor());
+        LevititeSparkleParticleData particleData = new LevititeSparkleParticleData(color.getTextureDiffuseColor());
         Levitating levitating = new Levitating(0.93f, Optional.of(particleData));
 
         DeferredItem<Item> holder = ITEMS.register(color.getSerializedName() + "_levitite", () -> new BlockItem(
