@@ -1,0 +1,21 @@
+{
+  "values": [
+    "aeronautics_dyeable_components:white_tire",
+    "aeronautics_dyeable_components:orange_tire",
+    "aeronautics_dyeable_components:magenta_tire",
+    "aeronautics_dyeable_components:light_blue_tire",
+    "aeronautics_dyeable_components:yellow_tire",
+    "aeronautics_dyeable_components:lime_tire",
+    "aeronautics_dyeable_components:pink_tire",
+    "aeronautics_dyeable_components:gray_tire",
+    "aeronautics_dyeable_components:light_gray_tire",
+    "aeronautics_dyeable_components:cyan_tire",
+    "aeronautics_dyeable_components:purple_tire",
+    "aeronautics_dyeable_components:blue_tire",
+    "aeronautics_dyeable_components:brown_tire",
+    "aeronautics_dyeable_components:green_tire",
+    "aeronautics_dyeable_components:red_tire",
+    "aeronautics_dyeable_components:black_tire",
+    "offroad:tire"
+  ]
+}

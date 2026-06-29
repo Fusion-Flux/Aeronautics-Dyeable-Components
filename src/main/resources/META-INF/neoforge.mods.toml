@@ -9,9 +9,9 @@ version = "${version}"
 displayName = "Create Aeronautics: Dyeable Components"
 #logoFile = "examplemod.png"
 #credits = ""
-authors = "Me!"
+authors = "FusionFlux"
 description = '''
-h
+A crime against the gods
 '''
 
 [[mixins]]

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.fusionflux"
-version = "1.0.0+mc${libs.versions.minecraft.get()}"
+version = "1.0.3+mc${libs.versions.minecraft.get()}"
 
 repositories {
     flatDir {

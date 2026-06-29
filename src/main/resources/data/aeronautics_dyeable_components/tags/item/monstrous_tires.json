@@ -1,0 +1,21 @@
+{
+  "values": [
+    "aeronautics_dyeable_components:white_monstrous_tire",
+    "aeronautics_dyeable_components:orange_monstrous_tire",
+    "aeronautics_dyeable_components:magenta_monstrous_tire",
+    "aeronautics_dyeable_components:light_blue_monstrous_tire",
+    "aeronautics_dyeable_components:yellow_monstrous_tire",
+    "aeronautics_dyeable_components:lime_monstrous_tire",
+    "aeronautics_dyeable_components:pink_monstrous_tire",
+    "aeronautics_dyeable_components:gray_monstrous_tire",
+    "aeronautics_dyeable_components:light_gray_monstrous_tire",
+    "aeronautics_dyeable_components:cyan_monstrous_tire",
+    "aeronautics_dyeable_components:purple_monstrous_tire",
+    "aeronautics_dyeable_components:blue_monstrous_tire",
+    "aeronautics_dyeable_components:brown_monstrous_tire",
+    "aeronautics_dyeable_components:green_monstrous_tire",
+    "aeronautics_dyeable_components:red_monstrous_tire",
+    "aeronautics_dyeable_components:black_monstrous_tire",
+    "offroad:monstrous_tire"
+  ]
+}
