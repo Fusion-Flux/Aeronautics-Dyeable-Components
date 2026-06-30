@@ -1,5 +1,3 @@
-import java.util.regex.Pattern
-
 plugins {
     java
     alias(libs.plugins.mdg)
@@ -9,8 +7,34 @@ group = "io.github.fusionflux"
 version = "1.0.3+mc${libs.versions.minecraft.get()}"
 
 repositories {
-    flatDir {
-        dir("libs")
+    exclusiveContent {
+        forRepositories(maven("https://maven.createmod.net")).filter {
+            includeGroup("com.simibubi.create")
+            includeGroup("dev.engine-room.flywheel")
+            includeGroup("net.createmod.ponder")
+        }
+
+        forRepositories(maven("https://maven.ithundxr.dev/snapshots")).filter {
+            includeModule("com.tterrag.registrate", "Registrate")
+        }
+
+//        forRepositories(maven("https://api.modrinth.com/maven")).filter {
+//            includeGroup("maven.modrinth")
+//        }
+
+        forRepositories(maven("https://maven.ryanhcode.dev/releases")).filter {
+            includeGroup("dev.ryanhcode.sable")
+            includeGroup("dev.ryanhcode.sable-companion")
+            includeGroup("dev.ryanhcode.offroad")
+            includeGroup("dev.simulated_team.simulated")
+            includeGroup("dev.eriksonn.aeronautics")
+        }
+
+        forRepositories(maven("https://maven.blamejared.com")).filter {
+            includeGroup("foundry.veil")
+            includeModule("gg.moonflower", "molang-compiler")
+            includeModule("io.github.ocelot", "glsl-processor")
+        }
     }
 }
 
@@ -60,15 +84,21 @@ sourceSets.main {
 }
 
 dependencies {
-    file("libs").listFiles().forEach {
-        val regex = Pattern.compile("(.+)-([0-9].*).jar")
-        val matcher = regex.matcher(it.name)
-        if (matcher.find()) {
-            val module = matcher.group(1)
-            val modVersion = matcher.group(2)
-            implementation("ignored:$module:$modVersion")
-        }
+    implementation(libs.create) {
+        isTransitive = false
     }
+
+    implementation(libs.ponder)
+    implementation(libs.registrate)
+
+    compileOnly(libs.flywheel.api)
+    runtimeOnly(libs.flywheel)
+
+    implementation(libs.bundles.simulated.suite) {
+        isTransitive = false
+    }
+
+    compileOnly(libs.bundles.sable.libs)
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
