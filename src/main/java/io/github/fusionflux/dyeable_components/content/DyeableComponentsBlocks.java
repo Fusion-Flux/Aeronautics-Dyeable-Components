@@ -1,16 +1,14 @@
 package io.github.fusionflux.dyeable_components.content;
 
+import dev.eriksonn.aeronautics.content.particle.LevititeSparkleParticleData;
 import dev.ryanhcode.offroad.content.components.TireLike;
 import dev.ryanhcode.offroad.content.items.tire.TireItem;
 import dev.ryanhcode.offroad.index.OffroadDataComponents;
-import dev.ryanhcode.offroad.index.OffroadItems;
 import io.github.fusionflux.dyeable_components.DyeableComponents;
 import dev.eriksonn.aeronautics.content.components.Levitating;
-import dev.eriksonn.aeronautics.content.particle.LevititeSparklePartcleData;
 import dev.eriksonn.aeronautics.index.AeroBlocks;
 import dev.eriksonn.aeronautics.index.AeroDataComponents;
 import dev.simulated_team.simulated.registrate.SimulatedRegistrate;
-import net.minecraft.Util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
@@ -40,7 +38,7 @@ public class DyeableComponentsBlocks {
     );
 
     public static final Map<DyeColor, DeferredItem<Item>> DYED_LEVITITE_ITEMS = DyeableComponents.colorMap(color -> {
-        LevititeSparklePartcleData particleData = new LevititeSparklePartcleData(color.getTextureDiffuseColor());
+        LevititeSparkleParticleData particleData = new LevititeSparkleParticleData(color.getTextureDiffuseColor());
         Levitating levitating = new Levitating(0.93f, Optional.of(particleData));
 
         DeferredItem<Item> holder = ITEMS.register(color.getSerializedName() + "_levitite", () -> new BlockItem(
